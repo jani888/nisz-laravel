@@ -19,4 +19,10 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/onboarding', 'OnboardingController@index')->name('onboarding');
     Route::get('/join', 'FamilyController@join');
     Route::post('/family', 'FamilyController@store');
+
+    Route::get('/schedule', 'ScheduleController@index');
+    Route::post('/schedule', 'ScheduleController@store');
+
+    Route::resource('/todo', 'TodoController')->names(['destroy' => 'todo.delete', 'index' => 'todo.index', 'edit' => 'todo.edit']);
+    Route::put('/todo/{todo}/done', 'TodoController@markAsDone')->name('todo.done');
 });

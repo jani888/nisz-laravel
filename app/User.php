@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Family;
+use App\Models\Todo;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,5 +41,9 @@ class User extends Authenticatable
 
     public function family() {
         return $this->belongsTo(Family::class);
+    }
+
+    public function todos() {
+        return $this->belongsToMany(Todo::class);
     }
 }

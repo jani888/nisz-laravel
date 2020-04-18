@@ -12,11 +12,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $family = factory(\App\Models\Family::class)->create();
         // $this->call(UserSeeder::class);
-        User::create(['email' => 'admin@test.hu', 'name' => 'teszt', 'family_id' => '123456789012', 'password' => bcrypt('admin')]);
+        $user = User::create(['email' => 'admin@test.hu', 'name' => 'teszt', 'family_id' => $family->id, 'password' => bcrypt('admin')]);
+
+        factory(\App\User::class)->times(10)->create(['family_id' => $family->id]);
 
         \App\Models\Family::create(['id' => '123456789012', 'name' => 'Teszt család']);
 
-        factory(\App\Models\Todo::class)->times(10)->create();
+        factory(\App\Models\Todo::class)->times(10)->create()->each(function ($todo) use ($user){
+            $todo->users()->attach($user);
+        });
     }
 }
