@@ -19,6 +19,9 @@ class RedirectNewUser
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        if(auth()->check()){
+            \View::share('unreadCount', $unreadCount = \Chat::messages()->setParticipant(auth()->user())->unreadCount());
+        }
         if (in_array($request->path(), ['onboarding', 'join', 'family']) || auth()->guest() || auth()->user()->family != null) {
             return $next($request);
         }

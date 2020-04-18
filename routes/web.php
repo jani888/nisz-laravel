@@ -19,12 +19,15 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/onboarding', 'OnboardingController@index')->name('onboarding');
     Route::get('/join', 'FamilyController@join');
     Route::post('/family', 'FamilyController@store');
+    Route::get('/invite', 'FamilyController@index');
 
     Route::get('/schedule', 'ScheduleController@index');
     Route::post('/schedule', 'ScheduleController@store');
 
     Route::view('/chat', 'chat.index');
-    Route::apiResource('/chat/conversations', 'ConversationController');
+    Route::get('/chat/conversations', 'ConversationController@index');
+    Route::get('/chat/conversations/{id}', 'ConversationController@show');
+    Route::get('/chat/conversations/{id}/read', 'ConversationController@read');
 
     Route::resource('/todo', 'TodoController')->names(['destroy' => 'todo.delete', 'index' => 'todo.index', 'edit' => 'todo.edit']);
     Route::put('/todo/{todo}/done', 'TodoController@markAsDone')->name('todo.done');

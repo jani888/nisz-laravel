@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Musonza\Chat\Models\Conversation;
 
 class ConversationController extends Controller
 {
@@ -14,6 +15,11 @@ class ConversationController extends Controller
     public function index()
     {
         return \Chat::conversations()->setParticipant(auth()->user())->get();
+    }
+
+    public function show($convo_id) {
+        \Chat::conversation(Conversation::find($convo_id))->setParticipant(auth()->user())->readAll();
+        return \Chat::conversation(Conversation::find($convo_id))->setParticipant(auth()->user())->getMessages();
     }
 
     /**

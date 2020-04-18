@@ -16,6 +16,7 @@ class CreateFamiliesTable extends Migration
         Schema::create('families', function (Blueprint $table) {
             $table->string('id')->unique();
             $table->text('name');
+            $table->integer('chat_id');
             $table->timestamps();
         });
     }

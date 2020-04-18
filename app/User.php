@@ -40,6 +40,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected static function booted() {
+        static::saved(function ($user) {
+            if($user->family_id){
+                \Chat::conversations()->getById(Family::find($user->family_id)->chat_id)->addParticipants([$user]);
+            }
+        });
+    }
+
+
     public function family() {
         return $this->belongsTo(Family::class);
     }

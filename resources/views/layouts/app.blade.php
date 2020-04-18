@@ -46,7 +46,7 @@
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item mx-2"><a href="/todo"> <i class="fa fa-list"></i> Teendők</a></li>
                             <li class="nav-item mx-2"><a href="/schedule"> <i class="fa fa-calendar"></i> Időbeosztás</a></li>
-                            <li class="nav-item mx-2"><a href="/chat"> <i class="fa fa-inbox"></i> Üzenetek</a></li>
+                            <li class="nav-item mx-2"><a href="/chat"> <i class="fa fa-inbox"></i> Üzenetek</a></li> @if(isset($unreadCount) && $unreadCount > 0) <span class="badge badge-danger badge-pill pt-2 mr-2">{{$unreadCount}} új</span> @endif
                             <li class="nav-item mx-2"><a href="/invite"> <i class="fa fa-paper-plane"></i> Meghívás</a></li>
                         </ul>
 
