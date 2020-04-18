@@ -9,14 +9,14 @@ use Illuminate\Http\Request;
 class ScheduleController extends Controller {
 
     public function index() {
-        $events = auth()->user()->family->schedule;
+        $events = auth()->user()->family->schedule()->with('user')->get();
         return view('schedule.index', compact('events'));
     }
 
-    public function destroy(Schedule $item) {
-        abort_unless($item->user_id == auth()->user()->id, 403);
+    public function destroy(Schedule $schedule) {
+        abort_unless($schedule->user_id == auth()->user()->id, 403);
 
-        $item->delete();
+        $schedule->delete();
         return back();
     }
 

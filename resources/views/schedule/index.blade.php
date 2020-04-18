@@ -47,15 +47,17 @@
 
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <form action="schedule" method="post">
+                <form action="schedule/" id="delete-form" method="post">
+                    @csrf
+                    @method('DELETE')
                     <div class="modal-body">
-                        @csrf
-                        <input type="hidden" name="from" id="input-from">
-                        <input type="hidden" name="to" id="input-to">
+                        Létrehozva: <span id="created_at"></span>
+                        <br>
+                        Felhasználó: <span id="user"></span>
                     </div>
                     <div class="modal-footer d-flex justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Mégsem</button>
-                        <button type="submit" class="btn btn-danger">Törlés</button>
+                        <button type="submit" class="btn btn-danger delete-btn">Törlés</button>
                     </div>
                 </form>
             </div>
@@ -81,10 +83,13 @@
             eventClick: function ({event}){
                 console.log(event);
                 $("#editModal").modal('show');
-                if(event.extendedProps.user_id == authUser.id){
-                    $('.delete-btn').hide();
-                }else{
+                $("#created_at").text(event.extendedProps.created_at);
+                $("#user").text(event.extendedProps.user.name);
+                if(event.extendedProps.user.id == authUser.id){
                     $('.delete-btn').show();
+                    $('#delete-form').attr('action', $('#delete-form').attr('action') + event.id);
+                }else{
+                    $('.delete-btn').hide();
                 }
             },
             select: function ({start, end}) {
