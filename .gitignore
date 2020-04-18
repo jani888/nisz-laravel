@@ -13,8 +13,6 @@ bootstrap/compiled.php
 app/storage/
 
 # Laravel 5 & Lumen specific
-public/storage
-public/hot
 storage/*.key
 .env
 Homestead.yaml
