@@ -23,6 +23,9 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/schedule', 'ScheduleController@index');
     Route::post('/schedule', 'ScheduleController@store');
 
+    Route::view('/chat', 'chat.index');
+    Route::apiResource('/chat/conversations', 'ConversationController');
+
     Route::resource('/todo', 'TodoController')->names(['destroy' => 'todo.delete', 'index' => 'todo.index', 'edit' => 'todo.edit']);
     Route::put('/todo/{todo}/done', 'TodoController@markAsDone')->name('todo.done');
 });
