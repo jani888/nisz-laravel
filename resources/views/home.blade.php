@@ -27,6 +27,7 @@
                             <div class="card-body py-2 px-3">
                                 <h5>Todo1</h5>
                                 <p class="my-1">Lorem ipsum</p>
+                                Határidő: 2020. 04. 17. 10:00
                             </div>
                         </div>
                     </div>
