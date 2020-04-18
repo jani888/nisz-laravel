@@ -13,8 +13,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserSeeder::class);
-        User::create(['email' => 'admin@test.hu', 'name' => 'teszt', 'password' => bcrypt('admin')]);
+        User::create(['email' => 'admin@test.hu', 'name' => 'teszt', 'family_id' => '123456789012', 'password' => bcrypt('admin')]);
 
         \App\Models\Family::create(['id' => '123456789012', 'name' => 'Teszt család']);
+
+        factory(\App\Models\Todo::class)->times(10)->create();
     }
 }

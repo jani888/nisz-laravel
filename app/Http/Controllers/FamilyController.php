@@ -12,11 +12,13 @@ class FamilyController extends Controller
         $this->validate($request, ['code' => ['min:12', 'max:12', 'required']]);
 
         if(auth()->user()->family != null){
-            return redirect('home')->with(['status' => 'error', 'message' => 'Már tagja vagy egy családnak']);
+            return redirect('/')->with(['status' => 'error', 'message' => 'Már tagja vagy egy családnak']);
         }
 
         auth()->user()->family()->associate(Family::findOrFail($request->code));
         auth()->user()->save();
+
+        return redirect('/');
     }
 
     public function store(Request $request) {

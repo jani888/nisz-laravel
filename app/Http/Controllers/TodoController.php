@@ -20,7 +20,10 @@ class TodoController extends Controller {
                 'nullable',
                 'datetime'
             ],
-            ''
+            'users' => [
+                'required',
+                'array'
+            ]
         ]);
     }
 }
