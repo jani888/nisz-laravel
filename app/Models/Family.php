@@ -14,7 +14,7 @@ class Family extends Model {
 
     protected static function booted() {
         static::saving(function ($family) {
-            $chat = \Chat::createConversation($family->users->toArray());
+            $chat = \Chat::createConversation();
             $chat->update(['data' => ['title' => $family->name . ' család']]);
 
             $family->chat_id = $chat->id;
