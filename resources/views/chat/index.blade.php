@@ -11,7 +11,7 @@
                                 <h4 class="text-primary">Üzenetek</h4>
                             </div>
                         </div>
-                        <div class="inbox_chat nav nav-pills nav-fill">
+                        <div class="inbox_chat px-4 nav nav-pills nav-fill">
 
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                 $('.inbox_chat').html("");
                 this.conversations.forEach(convo => {
                     $('.inbox_chat').append(`
-                        <div class="nav-item nav-link active ${convo.id == this.id ? 'active_chat' : ''}" data-conv-id="${convo.id}">
+                        <div class="nav-item nav-link ${convo.id == this.id ? 'active' : ''}" data-conv-id="${convo.id}">
                             <div class="">
                                 <div class="">
                                     <h5>${convo.conversation.data.title}
@@ -183,12 +183,6 @@
             border-bottom: 1px solid #c4c4c4;
         }
 
-        .recent_heading h4 {
-            color: #05728f;
-            font-size: 21px;
-            margin: auto;
-        }
-
         .srch_bar input {
             border: 1px solid #cdcdcd;
             border-width: 0 0 1px 0;
@@ -249,7 +243,6 @@
         }
 
         .inbox_chat {
-            height: 550px;
             overflow-y: scroll;
         }
 
