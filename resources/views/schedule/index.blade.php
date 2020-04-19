@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="card">
+        <div class="card shadow border-bottom-primary">
             <div class="card-body">
                 <div id="calendar"></div>
             </div>
