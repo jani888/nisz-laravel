@@ -67,9 +67,14 @@
                     </div>
                     <div class="card-body">
                         @foreach($todos as $todo)
-                            <div class="card my-2 px-3 py-1">
+                            <div class="card my-2 px-3 py-1 @if($item->is_done) bg-light text-muted @endif">
                                 <h5>{{$todo->title}}</h5>
                                 <p class="text-muted mb-0">{{substr($todo->description, 0, 100)}}...</p>
+                                @if($item->is_done)
+                                    <div class="col-auto d-flex align-items-center">
+                                        <i class="fa fa-check mr-2"></i> Befejezve
+                                    </div>
+                                @endif
                             </div>
                         @endforeach
                         <div class="p-2 pt-3 text-center">
