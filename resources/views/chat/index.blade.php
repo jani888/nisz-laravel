@@ -1,30 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card">
-        <div class="container">
-            <div class="messaging shadow border-bottom-primary">
-                <div class="inbox_msg">
-                    <div class="inbox_people">
-                        <div class="headind_srch">
-                            <div class="recent_heading">
-                                <h4 class="text-primary">Üzenetek</h4>
+    <div class="card shadow border-bottom-primary">
+        <div class="card-body">
+            <div class="container">
+                <div class="messaging">
+                    <div class="inbox_msg">
+                        <div class="inbox_people">
+                            <div class="headind_srch">
+                                <div class="recent_heading">
+                                    <h4 class="text-primary">Üzenetek</h4>
+                                </div>
+                            </div>
+                            <div class="inbox_chat">
+
                             </div>
                         </div>
-                        <div class="inbox_chat">
+                        <div class="mesgs">
+                            <div class="msg_history">
 
-                        </div>
-                    </div>
-                    <div class="mesgs">
-                        <div class="msg_history">
-
-                        </div>
-                        <div class="type_msg">
-                            <div class="input_msg_write">
-                                <input type="text" style="outline: none" class="write_msg" placeholder="Üzenet írása..."/>
-                                <button class="msg_send_btn btn btn-primary" type="button">
-                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                </button>
+                            </div>
+                            <div class="type_msg">
+                                <div class="input_msg_write">
+                                    <input type="text" style="outline: none" class="write_msg" placeholder="Üzenet írása..."/>
+                                    <button class="msg_send_btn rounded-circle text-center p-0 btn btn-primary" type="button">
+                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
