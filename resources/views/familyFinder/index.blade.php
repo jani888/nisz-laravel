@@ -45,8 +45,8 @@
 
                         <form action="{{config('app.url')}}/family-finder/setlocation" id="setlocation-form" method="post">
                             @csrf
-                            <input type="hidden" value="47.497913" name="longitude" id="longitude-input">
-                            <input type="hidden" value="19.040236" name="latitude" id="latitude-input">
+                            <input type="hidden" value="19.040236" name="longitude" id="longitude-input">
+                            <input type="hidden" value="47.497913" name="latitude" id="latitude-input">
                         </form>
                     @endif
                 </div>
