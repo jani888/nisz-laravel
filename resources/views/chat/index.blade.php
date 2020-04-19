@@ -75,10 +75,10 @@
                 $('.inbox_chat').html("");
                 this.conversations.forEach(convo => {
                     $('.inbox_chat').append(`
-                        <div class="nav-item nav-link ${convo.id == this.id ? 'active' : ''}" data-conv-id="${convo.id}">
+                        <div class="nav-item text-left nav-link ${convo.id == this.id ? 'active' : ''}" data-conv-id="${convo.id}">
                             <div class="">
                                 <div class="">
-                                    <h5>${convo.conversation.data.title}
+                                    <h6>${convo.conversation.data.title}</h6>
                                 </div>
                             </div>
                         </div>`);
