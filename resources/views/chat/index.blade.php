@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card shadow container border-bottom-primary">
-        <div class="card-body">
+    <div class="card shadow container border-bottom-primary pt-4 px-0">
+        <div class="card-body p-0">
             <div class="messaging">
                 <div class="inbox_msg">
                     <div class="inbox_people">
@@ -158,7 +158,6 @@
         }
 
         .inbox_msg {
-            border: 1px solid #c4c4c4;
             clear: both;
             overflow: hidden;
         }
