@@ -26,6 +26,6 @@ class RedirectNewUser
         if (Str::contains($request->path(), ['onboarding', 'join', 'family', 'logout']) || auth()->guest() || auth()->user()->family != null) {
             return $next($request);
         }
-        return redirect('/onboarding');
+        return redirect()->route('onboarding');
     }
 }

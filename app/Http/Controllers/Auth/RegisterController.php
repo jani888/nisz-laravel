@@ -72,6 +72,6 @@ class RegisterController extends Controller
     }
 
     public function redirectPath() {
-        return request()->redirectTo ?? app('app.url');
+        return request()->redirectTo ?? config('app.url');
     }
 }
