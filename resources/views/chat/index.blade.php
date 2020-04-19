@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="messaging">
+        <div class="messaging shadow border-bottom-primary">
             <div class="inbox_msg">
                 <div class="inbox_people">
                     <div class="headind_srch">

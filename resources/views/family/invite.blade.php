@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col">
-                <div class="card">
+                <div class="card shadow border-bottom-primary">
                     <div class="card-header">Családtagok meghívása</div>
 
                     <div class="card-body">

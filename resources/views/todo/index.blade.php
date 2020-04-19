@@ -18,7 +18,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col">
-                <div class="card">
+                <div class="card shadow border-bottom-primary">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         Tennivalók
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-modal">

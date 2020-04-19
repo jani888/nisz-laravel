@@ -18,7 +18,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col">
-                <div class="card">
+                <div class="card shadow border-bottom-primary">
                     <div class="card-header">Family finder</div>
 
                     @if($family->longitude != null)
