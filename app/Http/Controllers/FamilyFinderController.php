@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class FamilyFinderController extends Controller {
 
     public function index() {
-        $families = Family::orderByDistance(auth()->user()->family)->whereDoesntHave('friends', function ($query){
+        $families = Family::whereDoesntHave('friends', function ($query){
             $query->where('family1_id', auth()->user()->family->id)->orWhere('family2_id', auth()->user()->family->id);
-        })->where('id', '<>', auth()->user()->family->id)->get()->where('distance', '<=', 20);
+        })->where('id', '<>', auth()->user()->family->id)->get()->where('distance', '<=', 20)->sortBy('distance');
         $family = auth()->user()->family;
         $friends = auth()->user()->family->friends;
         return view('familyFinder.index', compact('family', 'families', 'friends'));

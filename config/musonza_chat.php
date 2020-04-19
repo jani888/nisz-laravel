@@ -32,7 +32,7 @@ return [
      * Routes configuration
      */
     'routes' => [
-        'path_prefix' => 'chat',
+        'path_prefix' => env('ROUTE_PREFIX') . '/chat',
         'middleware'  => ['web'],
     ],
 

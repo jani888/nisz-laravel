@@ -78,7 +78,7 @@
                 $('.msg_history').html('');
                 //chat content
                 this.conversation.data.forEach(message => {
-                    if(message.is_sender){
+                    if(message.is_sender == 1){
                         $('.msg_history').append(
                             `
                        <div class="outgoing_msg">
