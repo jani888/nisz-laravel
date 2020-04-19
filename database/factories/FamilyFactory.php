@@ -21,5 +21,7 @@ $factory->define(\App\Models\Family::class, function (Faker $faker) {
     return [
         'id' => Str::random(),
         'name' => $faker->name,
+        'longitude' => $faker->longitude,
+        'latitude' => $faker->latitude,
     ];
 });
