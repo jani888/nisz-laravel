@@ -13,11 +13,12 @@ class Family extends Model {
     public $incrementing = false;
 
     protected static function booted() {
-        static::creating(function ($family) {
+        static::saving(function ($family) {
             $chat = \Chat::createConversation($family->users->toArray());
             $chat->update(['data' => ['title' => $family->name . ' család']]);
 
             $family->chat_id = $chat->id;
+            return $family;
         });
     }
 
