@@ -14,11 +14,16 @@ class Family extends Model {
 
     protected static function booted() {
         static::saving(function ($family) {
-            $chat = \Chat::createConversation();
-            $chat->update(['data' => ['title' => $family->name . ' család']]);
+            if($family->chat_id == null) {
+                $chat = \Chat::createConversation([]);
+                $family->users->each(function ($user) use ($chat){
+                    $chat->addParticipant($user);
+                });
+                $chat->update(['data' => ['title' => $family->name . ' család']]);
 
-            $family->chat_id = $chat->id;
-            return $family;
+                $family->chat_id = $chat->id;
+                return $family;
+            }
         });
     }
 
