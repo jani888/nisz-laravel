@@ -30,7 +30,7 @@ class FamilyController extends Controller {
         auth()->user()->family()->associate(Family::findOrFail($code));
         auth()->user()->save();
 
-        return redirect('/');
+        return redirect()->route('home');
     }
 
     public function index() {
