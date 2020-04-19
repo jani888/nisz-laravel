@@ -68,12 +68,12 @@
                     <div class="card-body">
                         @foreach($todos as $todo)
                             <div class="card d-flex my-2 px-3 py-1 @if($todo->is_done) bg-light text-muted @endif">
-                                <div class="col">
+                                <div class="col-12">
                                     <h5>{{$todo->title}}</h5>
                                     <p class="text-muted mb-0">{{substr($todo->description, 0, 100)}}...</p>
                                 </div>
                                 @if($todo->is_done)
-                                    <div class="col-auto d-flex align-items-center border-left">
+                                    <div class="col-12 d-flex align-items-center ">
                                         <i class="fa fa-check mr-2"></i> Befejezve
                                     </div>
                                 @endif
