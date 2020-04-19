@@ -67,7 +67,7 @@
                     </div>
                     <div class="card-body">
                         @foreach($todos as $todo)
-                            <div class="card my-2 px-3 py-1 @if($item->is_done) bg-light text-muted @endif">
+                            <div class="card my-2 px-3 py-1 @if($todo->is_done) bg-light text-muted @endif">
                                 <h5>{{$todo->title}}</h5>
                                 <p class="text-muted mb-0">{{substr($todo->description, 0, 100)}}...</p>
                                 @if($todo->is_done)
