@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card shadow container border-bottom-primary pt-4 px-0">
+    <div class="card my-5 shadow container border-bottom-primary pt-4 px-0">
         <div class="card-body p-0">
             <div class="messaging">
                 <div class="inbox_msg">
@@ -174,7 +174,6 @@
             display: inline-block;
             text-align: right;
             width: 60%;
-            padding:
         }
 
         .headind_srch {
