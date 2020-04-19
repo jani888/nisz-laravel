@@ -150,11 +150,9 @@
         }
 
         .inbox_people {
-            background: #f8f8f8 none repeat scroll 0 0;
             float: left;
             overflow: hidden;
             width: 40%;
-            border-right: 1px solid #c4c4c4;
         }
 
         .inbox_msg {
@@ -344,10 +342,6 @@
             right: 0;
             top: 11px;
             width: 33px;
-        }
-
-        .messaging {
-            padding: 0 0 50px 0;
         }
 
         .msg_history {
