@@ -17,14 +17,17 @@ class FamilyController extends Controller {
             ],
         ]);
 
+        return $this->joinWithUrl($request->code);
+    }
+
+    public function joinWithURL($code) {
         if (auth()->user()->family != null) {
             return redirect('/')->with([
-                'status' => 'error',
+                'status'  => 'error',
                 'message' => 'Már tagja vagy egy családnak',
             ]);
         }
-
-        auth()->user()->family()->associate(Family::findOrFail($request->code));
+        auth()->user()->family()->associate(Family::findOrFail($code));
         auth()->user()->save();
 
         return redirect('/');

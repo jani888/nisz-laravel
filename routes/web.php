@@ -17,6 +17,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function (){
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/onboarding', 'OnboardingController@index')->name('onboarding');
+    Route::get('/join/{code}', 'FamilyController@joinWithURL');
     Route::get('/join', 'FamilyController@join');
     Route::post('/family', 'FamilyController@store');
     Route::get('/invite', 'FamilyController@index');

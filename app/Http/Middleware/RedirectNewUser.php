@@ -6,6 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class RedirectNewUser
 {
@@ -22,7 +23,7 @@ class RedirectNewUser
         if(auth()->check()){
             \View::share('unreadCount', $unreadCount = \Chat::messages()->setParticipant(auth()->user())->unreadCount());
         }
-        if (in_array($request->path(), ['onboarding', 'join', 'family']) || auth()->guest() || auth()->user()->family != null) {
+        if (in_array($request->path(), ['onboarding', 'join', 'family', 'logout']) || Str::contains($request->path(), 'join') || auth()->guest() || auth()->user()->family != null) {
             return $next($request);
         }
         return redirect('/onboarding');

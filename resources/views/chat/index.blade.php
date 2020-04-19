@@ -75,7 +75,7 @@
                         </div>`);
                 })
 
-                $('.msg_history').html('asdf');
+                $('.msg_history').html('');
                 //chat content
                 this.conversation.data.forEach(message => {
                     if(message.is_sender){
