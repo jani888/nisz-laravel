@@ -37,7 +37,7 @@
                                 <div class="card-body text-muted py-0">
                                     <p class="mb-1">{!! substr(strip_tags($article->description), 0, 200)  !!}...</p>
                                     <div class="d-flex justify-content-between">
-                                        <span>{{$article->pubDate}}</span>
+                                        <small class="text-dark">{{$article->pubDate}}</small>
                                         <a href="{{$article->link}}">
                                             tovább a cikkre »
                                         </a>
