@@ -11,7 +11,7 @@
                                 <h4 class="text-primary">Üzenetek</h4>
                             </div>
                         </div>
-                        <div class="inbox_chat">
+                        <div class="inbox_chat nav nav-pills nav-fill">
 
                         </div>
                     </div>
@@ -75,9 +75,9 @@
                 $('.inbox_chat').html("");
                 this.conversations.forEach(convo => {
                     $('.inbox_chat').append(`
-                        <div class="tab tab-pill ${convo.id == this.id ? 'active_chat' : ''}" data-conv-id="${convo.id}">
-                            <div class="chat_people">
-                                <div class="chat_ib">
+                        <div class="nav-item nav-link active ${convo.id == this.id ? 'active_chat' : ''}" data-conv-id="${convo.id}">
+                            <div class="">
+                                <div class="">
                                     <h5>${convo.conversation.data.title}
                                 </div>
                             </div>
