@@ -34,7 +34,7 @@
     </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm bg-gradient-primary">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
@@ -98,7 +98,7 @@
                 @yield('content')
             </main>
 
-            <footer class="site-footer">
+            <footer class="site-footer sticky-footer">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-sm-6 col-xs-12">
