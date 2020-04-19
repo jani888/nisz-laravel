@@ -27,11 +27,11 @@
                 </div>
             </div>
             <div class="col-9">
-                <div class="card h-100">
+                <div class="card border-bottom-primary h-100">
                     <div class="card-header">Hírek</div>
                     <div class="card-body">
                         @foreach($news as $article)
-                            <div class="card mb-3">
+                            <div class="card border-bottom-success mb-3">
                                 <div class="card-header border-0 bg-white p-0 pt-2 pl-3 text-primary">
                                     <h6 class="font-weight-900">{{$article->title}}</h6></div>
                                 <div class="card-body text-muted py-0">
@@ -53,15 +53,15 @@
         </div>
         <div class="row mt-3 d-flex flex-row justify-content-center align-items-stretch">
             <div class="col h-100">
-                <div class="card h-100">
+                <div class="card border-bottom-primary h-100">
                     <div class="card-header">Családtagok</div>
                     @foreach(auth()->user()->family->users as $user)
-                        <div class="card mx-2 my-1 p-1">{{$user->name}}</div>
+                        <div class="card border-left-danger mx-2 my-1 p-2">{{$user->name}}</div>
                     @endforeach
                 </div>
             </div>
             <div class="col h-100">
-                <div class="card h-100">
+                <div class="card border-bottom-primary h-100">
                     <div class="card-header">
                         Teendők
                     </div>
