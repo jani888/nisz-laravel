@@ -1,29 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="messaging shadow border-bottom-primary">
-            <div class="inbox_msg">
-                <div class="inbox_people">
-                    <div class="headind_srch">
-                        <div class="recent_heading">
-                            <h4>Üzenetek</h4>
+    <div class="card">
+        <div class="container">
+            <div class="messaging shadow border-bottom-primary">
+                <div class="inbox_msg">
+                    <div class="inbox_people">
+                        <div class="headind_srch">
+                            <div class="recent_heading">
+                                <h4 class="text-primary">Üzenetek</h4>
+                            </div>
+                        </div>
+                        <div class="inbox_chat">
+
                         </div>
                     </div>
-                    <div class="inbox_chat">
+                    <div class="mesgs">
+                        <div class="msg_history">
 
-                    </div>
-                </div>
-                <div class="mesgs">
-                    <div class="msg_history">
-
-                    </div>
-                    <div class="type_msg">
-                        <div class="input_msg_write">
-                            <input type="text" style="outline: none" class="write_msg" placeholder="Üzenet írása..."/>
-                            <button class="msg_send_btn" type="button">
-                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                            </button>
+                        </div>
+                        <div class="type_msg">
+                            <div class="input_msg_write">
+                                <input type="text" style="outline: none" class="write_msg" placeholder="Üzenet írása..."/>
+                                <button class="msg_send_btn btn btn-primary" type="button">
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,18 +49,25 @@
                     this.loadConversation(this.id)
                 });
             },
-            loadConversation(id){
+            loadConversation(id) {
                 this.id = id;
-                $.get('{{config('app.url')}}/chat/conversations/' + id, {participant_id: authUser.id, participant_type: 'App\\User'}).then(data => {
+                $.get('{{config('app.url')}}/chat/conversations/' + id, {
+                    participant_id: authUser.id,
+                    participant_type: 'App\\User'
+                }).then(data => {
                     this.conversation = data;
                     this.render();
                 });
             },
-            markAllAsRead(){
+            markAllAsRead() {
                 $.post('{{config('app.url')}}/chat/conversations/' + this.id + '/read');
             },
-            send(message){
-                $.post('{{config('app.url')}}/chat/conversations/' + this.id + '/messages', {participant_id: authUser.id, participant_type: 'App\\User', message: {body: message}});
+            send(message) {
+                $.post('{{config('app.url')}}/chat/conversations/' + this.id + '/messages', {
+                    participant_id: authUser.id,
+                    participant_type: 'App\\User',
+                    message: {body: message}
+                });
                 this.loadConversation(this.id);
             },
             render() {
@@ -78,7 +87,7 @@
                 $('.msg_history').html('');
                 //chat content
                 this.conversation.data.forEach(message => {
-                    if(message.is_sender == 1){
+                    if (message.is_sender == 1) {
                         $('.msg_history').append(
                             `
                        <div class="outgoing_msg">
@@ -87,7 +96,7 @@
                                 <span class="time_date"> ${message.created_at} </span></div>
                         </div>`
                         );
-                    }else{
+                    } else {
                         $('.msg_history').append(`
                          <div class="incoming_msg">
                             <div class="incoming_msg_img">
@@ -105,14 +114,14 @@
             }
         }
 
-        $('.write_msg').on('keypress',function(e) {
-            if(e.which == 13) {
+        $('.write_msg').on('keypress', function (e) {
+            if (e.which == 13) {
                 chat.send($('.write_msg').val());
                 $('.write_msg').val('')
             }
         });
 
-        $('.msg_send_btn').click(function (){
+        $('.msg_send_btn').click(function () {
             chat.send($('.write_msg').val());
             $('.write_msg').val('')
         });
