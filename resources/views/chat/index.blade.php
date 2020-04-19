@@ -18,7 +18,7 @@
                                 <h4 class="text-primary">Üzenetek</h4>
                             </div>
                         </div>
-                        <div class="inbox_chat px-4 nav nav-pills nav-vertical nav-fill">
+                        <div class="inbox_chat px-4 nav nav-pills flex-column nav-fill">
 
                         </div>
                     </div>
