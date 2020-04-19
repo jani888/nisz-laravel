@@ -180,7 +180,6 @@
         .headind_srch {
             padding: 10px 29px 10px 20px;
             overflow: hidden;
-            border-bottom: 1px solid #c4c4c4;
         }
 
         .srch_bar input {
