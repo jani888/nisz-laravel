@@ -18,7 +18,7 @@
                                 <h4 class="text-primary">Üzenetek</h4>
                             </div>
                         </div>
-                        <div class="inbox_chat px-4 nav nav-pills nav-fill">
+                        <div class="inbox_chat px-4 nav nav-pills nav-vertical nav-fill">
 
                         </div>
                     </div>
@@ -137,7 +137,7 @@
             chat.loadConversation(chat.id)
         }, 2000);
 
-        $(document).on('click', '.chat_list', function (target) {
+        $(document).on('click', '.nav-item', function (target) {
             $(this).addClass('active_chat');
             chat.loadConversation($(this).data('conv-id'));
         });
