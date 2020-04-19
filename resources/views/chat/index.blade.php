@@ -75,7 +75,7 @@
                 $('.inbox_chat').html("");
                 this.conversations.forEach(convo => {
                     $('.inbox_chat').append(`
-                        <div class="chat_list ${convo.id == this.id ? 'active_chat' : ''}" data-conv-id="${convo.id}">
+                        <div class="tab tab-pill ${convo.id == this.id ? 'active_chat' : ''}" data-conv-id="${convo.id}">
                             <div class="chat_people">
                                 <div class="chat_ib">
                                     <h5>${convo.conversation.data.title}
