@@ -67,7 +67,7 @@
                 map.getProjectionObject() // to Spherical Mercator Projection
             );
 
-        var zoom = 12;
+        var zoom = 6;
 
         var markers = new OpenLayers.Layer.Markers("Markers");
         markers.addMarker(new OpenLayers.Marker(lonLat));
