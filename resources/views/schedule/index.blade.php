@@ -77,6 +77,7 @@
             plugins: ['timeGrid', 'interaction'],
             locale: 'hu',
             nowIndicator: true,
+            allDaySlot: false,
             selectable: true,
             defaultView: 'timeGridWeek',
             events: @json($events),

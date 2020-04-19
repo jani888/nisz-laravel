@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center align-items-stretch">
-            <div class="col-3">
+            <div class="col-md-3 col-sm-12">
                 <div class="card shadow border-bottom-primary h-100">
                     <div class="card-header">Mai időbeosztás</div>
                     <div class="calendar h-100"></div>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-md-9 col-sm-12">
                 <div class="card shadow border-bottom-primary h-100">
                     <div class="card-header">Hírek</div>
                     <div class="card-body">
