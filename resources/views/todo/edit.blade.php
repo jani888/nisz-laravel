@@ -16,7 +16,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Teendő szerkesztése</h5>
             </div>
             <div class="card-body">
-                <form action="/todo/{{$todo->id}}" method="post">
+                <form action="{{config('app.url')}}/todo/{{$todo->id}}" method="post">
                     @csrf
                     @method('PUT')
 

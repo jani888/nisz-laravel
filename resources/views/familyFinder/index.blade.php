@@ -25,7 +25,7 @@
                         <div class="card-body d-flex">
                             <div class="col">
                                 @foreach($families as $family)
-                                    <form action="/family-finder/{{$family->id}}" method="post">
+                                    <form action="{{config('app.url')}}/family-finder/{{$family->id}}" method="post">
                                         <div class="card p-2 my-2 d-flex flex-row justify-content-between align-items-center">
                                             <span>{{$family->name}} | <span class="text-muted">{{number_format($family->distance, 2, '.', ' ')}} km</span></span>
 
@@ -43,7 +43,7 @@
                             <button class="btn btn-primary findMe">Helyzet megosztása</button>
                         </div>
 
-                        <form action="/family-finder/setlocation" id="setlocation-form" method="post">
+                        <form action="{{config('app.url')}}/family-finder/setlocation" id="setlocation-form" method="post">
                             @csrf
                             <input type="hidden" name="longitude" id="longitude-input">
                             <input type="hidden" name="latitude" id="latitude-input">

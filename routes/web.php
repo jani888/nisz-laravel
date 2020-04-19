@@ -12,29 +12,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Route::prefix(config('app.route_prefix'))->group(function (){
+    Auth::routes();
 
-Route::middleware(['auth'])->group(function (){
-    Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/onboarding', 'OnboardingController@index')->name('onboarding');
-    Route::get('/join/{code}', 'FamilyController@joinWithURL');
-    Route::get('/join', 'FamilyController@join');
-    Route::post('/family', 'FamilyController@store');
-    Route::get('/invite', 'FamilyController@index');
+    Route::middleware(['auth'])->group(function (){
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/onboarding', 'OnboardingController@index')->name('onboarding');
+        Route::get('/join/{code}', 'FamilyController@joinWithURL');
+        Route::get('/join', 'FamilyController@join')->name('family.join');
+        Route::post('/family', 'FamilyController@store')->name('family.create');
+        Route::get('/invite', 'FamilyController@index')->name('invite');
 
-    Route::get('/schedule', 'ScheduleController@index');
-    Route::post('/schedule', 'ScheduleController@store');
-    Route::delete('/schedule/{schedule}', 'ScheduleController@destroy');
+        Route::get('/schedule', 'ScheduleController@index')->name('schedule');
+        Route::post('/schedule', 'ScheduleController@store');
+        Route::delete('/schedule/{schedule}', 'ScheduleController@destroy');
 
-    Route::view('/chat', 'chat.index')->name('chat');
-    Route::get('/chat/conversations', 'ConversationController@index');
-    Route::get('/chat/conversations/{id}', 'ConversationController@show');
-    Route::get('/chat/conversations/{id}/read', 'ConversationController@read');
+        Route::view('/chat', 'chat.index')->name('chat');
+        Route::get('/chat/conversations', 'ConversationController@index');
+        Route::get('/chat/conversations/{id}', 'ConversationController@show');
+        Route::get('/chat/conversations/{id}/read', 'ConversationController@read');
 
-    Route::get('family-finder', 'FamilyFinderController@index');
-    Route::post('family-finder/setlocation', 'FamilyFinderController@setLocation');
-    Route::post('family-finder/{family}', 'FamilyFinderController@friendRequest');
+        Route::get('family-finder', 'FamilyFinderController@index')->name('familyFinder');
+        Route::post('family-finder/setlocation', 'FamilyFinderController@setLocation');
+        Route::post('family-finder/{family}', 'FamilyFinderController@friendRequest');
 
-    Route::resource('/todo', 'TodoController')->names(['destroy' => 'todo.delete', 'index' => 'todo.index', 'edit' => 'todo.edit']);
-    Route::put('/todo/{todo}/done', 'TodoController@markAsDone')->name('todo.done');
+        Route::resource('/todo', 'TodoController')->names(['destroy' => 'todo.delete', 'index' => 'todo.index', 'edit' => 'todo.edit']);
+        Route::put('/todo/{todo}/done', 'TodoController@markAsDone')->name('todo.done');
+    });
 });

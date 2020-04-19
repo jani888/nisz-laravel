@@ -38,10 +38,10 @@
             id: null,
             conversations: [],
             createConversation() {
-                $.post('chat/conversations', {title: 'asdf'});
+                $.post('{{config('app.url')}}/chat/conversations', {title: 'asdf'});
             },
             loadConversations() {
-                $.get('chat/conversations').then(data => {
+                $.get('{{config("app.url")}}/chat/conversations').then(data => {
                     this.conversations = data.data;
                     this.id = this.conversations[0].id;
                     this.loadConversation(this.id)
@@ -49,16 +49,16 @@
             },
             loadConversation(id){
                 this.id = id;
-                $.get('chat/conversations/' + id, {participant_id: authUser.id, participant_type: 'App\\User'}).then(data => {
+                $.get('{{config('app.url')}}/chat/conversations/' + id, {participant_id: authUser.id, participant_type: 'App\\User'}).then(data => {
                     this.conversation = data;
                     this.render();
                 });
             },
             markAllAsRead(){
-                $.post('chat/conversations/' + this.id + '/read');
+                $.post('{{config('app.url')}}/chat/conversations/' + this.id + '/read');
             },
             send(message){
-                $.post('chat/conversations/' + this.id + '/messages', {participant_id: authUser.id, participant_type: 'App\\User', message: {body: message}});
+                $.post('{{config('app.url')}}/chat/conversations/' + this.id + '/messages', {participant_id: authUser.id, participant_type: 'App\\User', message: {body: message}});
                 this.loadConversation(this.id);
             },
             render() {

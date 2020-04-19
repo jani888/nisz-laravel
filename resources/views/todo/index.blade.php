@@ -29,7 +29,7 @@
                     <div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <form action="/todo" method="post">
+                                <form action="{{route('todo.store')}}" method="post">
                                     @csrf
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Új teendő</h5>
@@ -82,7 +82,7 @@
                                     </div>
                                     @if(!$item->is_done)
                                         <div class="col-auto border-left d-flex align-items-center">
-                                            <form action="todo/{{$item->id}}/done" method="post">
+                                            <form action="{{config('app.url')}}/todo/{{$item->id}}/done" method="post">
                                                 @csrf
                                                 @method('PUT')
                                                 <button class="btn btn-link text-primary p-0">
@@ -97,7 +97,7 @@
                                                     <i class="fas fa-pen"></i>
                                                     szerkesztés
                                                 </a>
-                                                <form action="todo/{{$item->id}}" method="post">
+                                                <form action="{{config('app.url')}}/todo/{{$item->id}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-link text-danger p-0">

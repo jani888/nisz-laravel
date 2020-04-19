@@ -22,7 +22,7 @@
                     <div class="card-header">Mai időbeosztás</div>
                     <div class="calendar h-100"></div>
                     <div class="p-2 text-center">
-                        <a href="/schedule">Tovább az időbeosztásra »</a>
+                        <a href="{{config('app.url')}}/schedule">Tovább az időbeosztásra »</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                             </div>
                         @endforeach
                         <div class="p-2 pt-3 text-center">
-                            <a href="/todo">Összes megjelenítése »</a>
+                            <a href="{{config('app.url')}}/todo">Összes megjelenítése »</a>
                         </div>
                     </div>
                 </div>

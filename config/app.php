@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'route_prefix' => env('ROUTE_PREFIX'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

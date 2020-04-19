@@ -19,7 +19,7 @@
                 <div class="card-body">
                     Meglévő családhoz csatlakozás
 
-                    <form action="/join" method="get">
+                    <form action="{{route('family.join')}}" method="get">
                         <div class="form-group">
                             <label for="familyCode" class="font-weight-bold">Család kód</label>
                             <input type="text" name="code" class="form-control" placeholder="12-jegyű család kód" id="familyCode" aria-describedby="emailHelp">
@@ -36,7 +36,7 @@
                 <div class="card-header">Új család</div>
                 <div class="card-body">
                     <p>Új család létrehozása</p>
-                    <form action="/family" method="post">
+                    <form action="{{route('family.create')}}" method="post">
                         @csrf
                         <div class="form-group">
                             <label for="familyName" class="font-weight-bold">Család név</label>

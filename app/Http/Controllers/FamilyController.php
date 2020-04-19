@@ -51,6 +51,7 @@ class FamilyController extends Controller {
             'id'   => Str::random(12),
         ]);
         auth()->user()->family()->associate($family);
+        auth()->user()->save();
         return view('family.invite', compact('family'));
     }
 }

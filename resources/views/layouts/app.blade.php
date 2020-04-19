@@ -29,7 +29,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous"/>
         <!-- Styles -->
-        <link href="{{asset('css/app.css')}}" rel="stylesheet">
+        <link href="{{config('app.url')}}/css/app.css" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -43,16 +43,16 @@
                         <!-- Left Side Of Navbar -->
                         @auth
                             <ul class="navbar-nav mr-auto">
-                                <li class="nav-item mx-2"><a href="/"> <i class="fa fa-home"></i> Család</a></li>
-                                <li class="nav-item mx-2"><a href="/todo"> <i class="fa fa-list"></i> Teendők</a></li>
-                                <li class="nav-item mx-2"><a href="/schedule">
+                                <li class="nav-item mx-2"><a href="{{config('app.url')}}"> <i class="fa fa-home"></i> Család</a></li>
+                                <li class="nav-item mx-2"><a href="{{route('todo.index')}}"> <i class="fa fa-list"></i> Teendők</a></li>
+                                <li class="nav-item mx-2"><a href="{{route('schedule')}}">
                                         <i class="fa fa-calendar"></i> Időbeosztás</a></li>
-                                <li class="nav-item mx-2"><a href="/chat"> <i class="fa fa-inbox"></i> Üzenetek</a>
+                                <li class="nav-item mx-2"><a href="{{route('chat')}}"> <i class="fa fa-inbox"></i> Üzenetek</a>
                                 </li> @if(isset($unreadCount) && $unreadCount > 0)
                                     <span class="badge badge-danger badge-pill pt-2 mr-2">{{$unreadCount}} új</span> @endif
-                                <li class="nav-item mx-2"><a href="/family-finder">
+                                <li class="nav-item mx-2"><a href="{{route('familyFinder')}}">
                                         <i class="fa fa-users"></i> Family finder</a></li>
-                                <li class="nav-item mx-2"><a href="/invite"> <i class="fa fa-paper-plane"></i> Meghívás</a>
+                                <li class="nav-item mx-2"><a href="{{route('invite')}}"> <i class="fa fa-paper-plane"></i> Meghívás</a>
                                 </li>
                             </ul>
                     @endauth

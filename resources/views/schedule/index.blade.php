@@ -17,7 +17,7 @@
 
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <form action="schedule" method="post">
+                <form action="{{route('schedule')}}" method="post">
                     <div class="modal-body">
                         <h4>Számítógéphasználat hozzáadása</h4>
                         <div>
@@ -47,7 +47,7 @@
 
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
-                <form action="schedule/" id="delete-form" method="post">
+                <form action="{{route('schedule')}}/" id="delete-form" method="post">
                     @csrf
                     @method('DELETE')
                     <div class="modal-body">
